@@ -85,7 +85,7 @@ namespace ASP_2184587.Controllers
                     cliente.email = editUser.email;                   
 
                     db.SaveChanges();
-                    return View();
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)

@@ -87,7 +87,7 @@ namespace ASP_2184587.Controllers
                     proveedor.nombre_contacto = editUser.nombre_contacto;
 
                     db.SaveChanges();
-                    return View();
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
