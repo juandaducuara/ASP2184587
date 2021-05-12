@@ -108,7 +108,7 @@ namespace ASP_2184587.Controllers
                     user.password = editUser.password;
                     
                     db.SaveChanges();
-                    return View();
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
