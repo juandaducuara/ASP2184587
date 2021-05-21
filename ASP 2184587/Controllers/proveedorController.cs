@@ -18,11 +18,11 @@ namespace ASP_2184587.Controllers
                 return View(db.proveedor.ToList());
             }
 
-        }
+        }        
         public ActionResult Create()
         {
             return View();
-        }
+        }        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(proveedor proveedor)
