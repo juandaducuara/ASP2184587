@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.percio_unitario)
+            precio unitario
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripción
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_proveedor)
+            Nombre Proveedor
         </th>
         <th></th>
     </tr>
@@ -49,9 +49,21 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.id },new {@class = "linkDelete" })
         </td>
     </tr>
 }
-
 </table>
+
+@section scripts
+    {
+    <script>
+        $(".linkDelete").click(function(event)
+        {
+            if(!confirm('¿Esta seguro de eliminar?'))
+            {
+            event.preventDefault();
+            }
+        })
+    </script>
+    }

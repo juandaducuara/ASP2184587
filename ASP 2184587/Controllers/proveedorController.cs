@@ -43,9 +43,7 @@ namespace ASP_2184587.Controllers
                 ModelState.AddModelError("", "Error" + ex);
                 return View();
             }
-        }
-
-        // Modificar desde aqui
+        }        
         public ActionResult Details(int id)
         {
             using (var db = new inventarioEntities1())

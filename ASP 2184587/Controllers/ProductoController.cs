@@ -52,8 +52,6 @@ namespace ASP_2184587.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -62,7 +60,64 @@ namespace ASP_2184587.Controllers
             }
 
         }            
+        public ActionResult Edit(int id)
+        {
+            using (var db = new inventarioEntities1()) 
+                {
+                    producto productoEdit = db.producto.Where(a => a.id == id).FirstOrDefault();
+                    return View(productoEdit);
+                }                 
+         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(producto productoEdit)
+        {
+            try
+            {
+                using (var db = new inventarioEntities1())
+                {
+                    producto oldProduct = db.producto.Find(productoEdit.id);
+                    oldProduct.nombre = productoEdit.nombre;
+                    oldProduct.cantidad = productoEdit.cantidad;
+                    oldProduct.descripcion = productoEdit.descripcion;
+                    oldProduct.percio_unitario = productoEdit.percio_unitario;
+                    oldProduct.id_proveedor = productoEdit.id_proveedor;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventarioEntities1())
+            {
+                var findUser = db.producto.Find(id);
+                return View(findUser);
+            }
+        }
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                using (var db = new inventarioEntities1())
+                {
+                    var findUser = db.producto.Find(id);
+                    db.producto.Remove(findUser);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
 
-       
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
     }
 }
