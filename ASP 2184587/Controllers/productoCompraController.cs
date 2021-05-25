@@ -1,48 +1,41 @@
-﻿using System;
+﻿using ASP_2184587.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ASP_2184587.Models;
 
 namespace ASP_2184587.Controllers
 {
-    public class CompraController : Controller
+    public class productoCompraController : Controller
     {
-        // GET: Compra
+        // GET: productoCompra
         public ActionResult Index()
-        {         
-                using (var db = new inventarioEntities1())
-                {
-                    return View(db.compra.ToList());
-                }            
-        }
-        public static string nombreUsuario(int? idUsuario)
         {
             using (var db = new inventarioEntities1())
             {
-                return db.usuario.Find(idUsuario).nombre;
+                return View(db.producto_compra.ToList());
+            }
+        }        
+        public static string nombreProducto(int? idProducto)
+        {
+            using (var db = new inventarioEntities1())
+            {
+                return db.producto.Find(idProducto).nombre;
             }
         }
-        public static string nombreCliente(int? idCliente)
+        public ActionResult ListarCompra()
         {
             using (var db = new inventarioEntities1())
             {
-                return db.cliente.Find(idCliente).nombre;
+                return PartialView(db.compra.ToList());
             }
         }
-        public ActionResult ListarUsuarios()
+        public ActionResult ListarProducto()
         {
             using (var db = new inventarioEntities1())
             {
-                return PartialView(db.usuario.ToList());
-            }
-        }
-        public ActionResult ListarClientes()
-        {
-            using (var db = new inventarioEntities1())
-            {
-                return PartialView(db.cliente.ToList());
+                return PartialView(db.producto.ToList());
             }
         }
         public ActionResult Create()
@@ -51,7 +44,7 @@ namespace ASP_2184587.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(compra compra)
+        public ActionResult Create(producto_compra productoCompra)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -59,7 +52,7 @@ namespace ASP_2184587.Controllers
             {
                 using (var db = new inventarioEntities1())
                 {
-                    db.compra.Add(compra);
+                    db.producto_compra.Add(productoCompra);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -74,24 +67,22 @@ namespace ASP_2184587.Controllers
         {
             using (var db = new inventarioEntities1())
             {
-                compra compraEdit = db.compra.Where(a => a.id == id).FirstOrDefault();
-                return View(compraEdit);
+                producto_compra productocompraEdit = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
+                return View(productocompraEdit);
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(compra compraEdit)
+        public ActionResult Edit(producto_compra producto_Compra)
         {
             try
             {
                 using (var db = new inventarioEntities1())
                 {
-                    compra anteriorCompra = db.compra.Find(compraEdit.id);
-                    anteriorCompra.fecha = compraEdit.fecha;
-                    anteriorCompra.total = compraEdit.total;
-                    anteriorCompra.id_usuario = compraEdit.id_usuario;
-                    anteriorCompra.id_cliente = compraEdit.id_cliente;
-
+                    producto_compra productoCompra = db.producto_compra.Find(producto_Compra.id);
+                    productoCompra.id_compra = producto_Compra.id_compra;
+                    productoCompra.id_producto = producto_Compra.id_producto;
+                    productoCompra.cantidad = producto_Compra.cantidad;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -106,7 +97,7 @@ namespace ASP_2184587.Controllers
         {
             using (var db = new inventarioEntities1())
             {
-                var findUser = db.compra.Find(id);
+                var findUser = db.producto_compra.Find(id);
                 return View(findUser);
             }
         }
@@ -116,8 +107,8 @@ namespace ASP_2184587.Controllers
             {
                 using (var db = new inventarioEntities1())
                 {
-                    var findUser = db.compra.Find(id);
-                    db.compra.Remove(findUser);
+                    var findUser = db.producto_compra.Find(id);
+                    db.producto_compra.Remove(findUser);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
