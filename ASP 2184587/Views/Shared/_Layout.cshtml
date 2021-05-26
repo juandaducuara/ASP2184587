@@ -23,12 +23,18 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                    <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                    <li>@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
-                    <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
-                    <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
-                    <li>@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
+                    <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {          
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                        <li>@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
+                        <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
+                        <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
+                        <li>@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
+                        <li>@Html.ActionLink("Cerrar sesion", "closeSession", "usuario")</li>
+                    } 
+
                 </ul>
             </div>
         </div>

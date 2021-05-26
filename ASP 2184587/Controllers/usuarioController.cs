@@ -5,12 +5,14 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ASP_2184587.Models;
+using System.Web.Security;
 
 namespace ASP_2184587.Controllers
 {
     public class usuarioController : Controller
     {
         // GET: usuario
+        [Authorize]
         public ActionResult Index()
         {
             using (var db = new inventarioEntities1())
@@ -23,7 +25,6 @@ namespace ASP_2184587.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(usuario usuario)
@@ -49,14 +50,11 @@ namespace ASP_2184587.Controllers
             }
             
         }
-
-
         public static string HashSHA1(string value)
         {
             var sha1 = System.Security.Cryptography.SHA1.Create();
             var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha1.ComputeHash(inputBytes);
-
             var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
             {
@@ -64,7 +62,6 @@ namespace ASP_2184587.Controllers
             }
             return sb.ToString();
         }
-
         public ActionResult Details(int id)
         {
             using(var db = new inventarioEntities1())
@@ -74,7 +71,6 @@ namespace ASP_2184587.Controllers
 
             }
         }
-
         public ActionResult Edit(int id)
         {
             try
@@ -131,10 +127,41 @@ namespace ASP_2184587.Controllers
             }
             catch (Exception ex)
             {
-
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+        public ActionResult Login(string message ="")
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string user,string password)
+        {
+            string passEncrip = usuarioController.HashSHA1(password);
+            using(var db = new inventarioEntities1())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == user && e.password == passEncrip);
+                if(userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email,true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
+        }
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
