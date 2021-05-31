@@ -216,6 +216,7 @@
     <Compile Include="Models\proveedor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -304,6 +305,7 @@
     <Content Include="Views\productoCompra\Edit.cshtml" />
     <Content Include="Views\productoCompra\Details.cshtml" />
     <Content Include="Views\usuario\Login.cshtml" />
+    <Content Include="Views\Producto\Reporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
