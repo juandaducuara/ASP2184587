@@ -12,7 +12,7 @@ namespace ASP_2184587.Controllers
     public class usuarioController : Controller
     {
         // GET: usuario
-        [Authorize]
+        [Authorize]  
         public ActionResult Index()
         {
             using (var db = new inventarioEntities1())
@@ -21,6 +21,7 @@ namespace ASP_2184587.Controllers
             }
             
         }
+        
         public ActionResult Create()
         {
             return View();

@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ASP_2184587.Models;
+using Rotativa;
 
 namespace ASP_2184587.Controllers
 {
@@ -134,6 +135,10 @@ namespace ASP_2184587.Controllers
                             };
                 return View(query);
             
+        }
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "Reporte.Pdf" };
         }
     }
 }
