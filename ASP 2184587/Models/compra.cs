@@ -29,8 +29,7 @@ namespace ASP_2184587.Models
         [Required]
         public Nullable<int> id_usuario { get; set; }
         [Required]
-        public Nullable<int> id_cliente { get; set; }
-        [Required]
+        public Nullable<int> id_cliente { get; set; }        
         public virtual cliente cliente { get; set; }
         public virtual usuario usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -22,9 +22,9 @@ namespace ASP_2184587.Models
         public Nullable<int> id_producto { get; set; }
         [Required]
         public Nullable<int> cantidad { get; set; }
-        [Required]
+      
         public virtual compra compra { get; set; }
-        [Required]
+        
         public virtual producto producto { get; set; }
     }
 }
