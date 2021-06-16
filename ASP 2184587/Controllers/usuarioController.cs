@@ -20,8 +20,7 @@ namespace ASP_2184587.Controllers
                 return View(db.usuario.ToList());
             }
             
-        }
-        
+        }        
         public ActionResult Create()
         {
             return View();
