@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/Custom.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,28 +18,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("NIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                <ul class="nav nav-tabs">
+                    <li role="presentation">@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li role="presentation">@Html.ActionLink("Acerca de", "About", "Home")</li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
+                        <li role="presentation" class="active">@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>                        
                     }
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                            <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                            <li>@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
-                            <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
-                            <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
-                            <li>@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
-                            <li>@Html.ActionLink("Cerrar sesion", "closeSession", "usuario")</li>
-                        }
 
-                    </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li role="presentation">@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li role="presentation">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                        <li role="presentation">@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
+                        <li role="presentation">@Html.ActionLink("Producto", "Index", "Producto")</li>
+                        <li role="presentation">@Html.ActionLink("Compra", "Index", "Compra")</li>
+                        <li role="presentation">@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
+                        <li role="presentation">@Html.ActionLink("Cerrar sesion", "closeSession", "usuario")</li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
