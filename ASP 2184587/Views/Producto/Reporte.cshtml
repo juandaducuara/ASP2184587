@@ -3,7 +3,7 @@
     ViewBag.Title = "Reporte";    
 }
 
-<h2 style="font-size=34px">Reporte</h2>
+<h2 style=""font-size="34px">Reporte</h2>
 <table class="table">
     <tr>
         <th>Proveedor</th>
@@ -14,12 +14,17 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>@Html.DisplayFor(modelItem => item.nombreProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.telefonoProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.direccionProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
-    <td>@Html.DisplayFor(modelItem => item.precioProducto)</td>
-</tr>
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nombreProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.telefonoProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.direccionProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
+            <td>@Html.DisplayFor(modelItem => item.precioProducto)</td>
+        </tr>
     }
+    
 </table>
+<p>
+    @Html.ActionLink("Imprimir Reporte", "ImprimirReporte","", new { @class = "btn btn-primary", @role = "button" }) |
+    @Html.ActionLink("Regresar", "Index", "", new { @class = "btn btn-info", @role = "button" })
+</p>

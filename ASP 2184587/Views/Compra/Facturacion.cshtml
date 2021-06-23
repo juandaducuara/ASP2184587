@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ASP_2184587.Models.Facturacion>
+@{
+    ViewBag.Title = "Facturacion";
+}
+
+<h2 style="" font-size="34px">Facturacion</h2>
+<table class="table">
+    <tr>
+        <th>Nombre Cliente</th>
+        <th>Documento</th>
+        <th>Fecha venta</th>
+        <th>Total</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
+            <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Imprimir Facturacion", "ImprimirFaturacion", "", new { @class = "btn btn-primary", @role = "button" }) |
+    @Html.ActionLink("Regresar", "Index", "", new { @class = "btn btn-info", @role = "button" })
+</div>

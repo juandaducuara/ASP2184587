@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ASP_2184587.Models;
+using Rotativa;
 
 namespace ASP_2184587.Controllers
 {
@@ -129,6 +130,25 @@ namespace ASP_2184587.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+        public ActionResult Facturacion()
+        {
+            var db = new inventarioEntities1();
+            var query = from tabCompra in db.compra
+                        join tabCliente in db.cliente on tabCompra.id equals tabCliente.id
+                        select new Facturacion
+                        {
+                            nombreCliente = tabCliente.nombre,
+                            documentoCliente = tabCliente.documento,
+                            fechaCompra = tabCompra.fecha,
+                            totalCompra= tabCompra.total,                            
+                        };
+            return View(query);
+
+        }
+        public ActionResult ImprimirFaturacion()
+        {
+            return new ActionAsPdf("Facturacion") { FileName = "Facturacion.Pdf" };
         }
     }
 }
