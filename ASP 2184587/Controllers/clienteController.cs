@@ -113,6 +113,11 @@ namespace ASP_2184587.Controllers
                 return View();
             }
         }
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult uploadCSV(HttpPostedFileBase fileForm)
         {
             string filePath = string.Empty;

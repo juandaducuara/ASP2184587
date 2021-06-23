@@ -7,7 +7,7 @@
 <h2>Lista de Usuarios</h2>
 
 <p>
-    @Html.ActionLink("Crear Usuario", "Create","", new { @class = "btn btn-success", @role = "button" })
+    @Html.ActionLink("Crear Usuario", "Create", "", new { @class = "btn btn-success", @role = "button" })
 </p>
 <table class="table table-bordered">
     <tr>
@@ -44,14 +44,13 @@
     }
 
 </table>
+@Html.ActionLink("Cargue Masivo de Datos", "uploadCSV", "", new { @class = "btn btn-info", @role = "button" })
 @section scripts
     {
     <script>
-        $(".linkDelete").click(function(event)
-        {
-            if(!confirm('¿Esta seguro de eliminar?'))
-            {
-            event.preventDefault();
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿Esta seguro de eliminar?')) {
+                event.preventDefault();
             }
         })
     </script>

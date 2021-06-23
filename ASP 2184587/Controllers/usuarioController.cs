@@ -167,6 +167,11 @@ namespace ASP_2184587.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult uploadCSV(HttpPostedFileBase fileForm)
         {
             string filePath = string.Empty;
