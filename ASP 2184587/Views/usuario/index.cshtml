@@ -7,7 +7,7 @@
 <h2>Lista de Usuarios</h2>
 
 <p>
-    @Html.ActionLink("Crear Usuario", "Create")
+    @Html.ActionLink("Crear Usuario", "Create","", new { @class = "btn btn-success", @role = "button" })
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.email)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "btn btn-warning", @role = "button" })
+                @Html.ActionLink("Borrar", "Delete", new { id = item.id }, new { @class = "linkDelete btn btn-danger", @role = "button" })
             </td>
         </tr>
     }
