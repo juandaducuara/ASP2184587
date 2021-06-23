@@ -9,21 +9,21 @@
 <p>
     @Html.ActionLink("Crear Compra", "Create", "", new { @class = "btn btn-success", @role = "button" })
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
-        <th>
+        <th class="active">
             Fecha
         </th>
-        <th>
+        <th class="active">
             Total compra
         </th>
-        <th>
+        <th class="active">
             Nombre usuario
         </th>
-        <th>
+        <th class="active">
             Nombre cliente
         </th>
-        <th></th>
+        <th class="active">Opciones</th>
     </tr>
 
     @foreach (var item in Model)

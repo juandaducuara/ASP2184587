@@ -9,50 +9,51 @@
 <p>
     @Html.ActionLink("Crear Producto", "Create", "", new { @class = "btn btn-success", @role = "button" })
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
-        <th>
+        <th class="active">
             Nombre
         </th>
-        <th>
+        <th class="active">
             Precio unitario
         </th>
-        <th>
+        <th class="active">
             Descripción
         </th>
-        <th>
+        <th class="active">
             Cantidad
         </th>
-        <th>
+        <th class="active">
             Nombre Proveedor
         </th>
-        <th></th>
+        <th class="active">Opciones</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.percio_unitario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
-        </td>
-        <td>
-            @ASP_2184587.Controllers.ProductoController.nombreProveedor(item.id_proveedor)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary", @role = "button" })
-            @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "btn btn-warning", @role = "button" })
-            @Html.ActionLink("Borrar", "Delete", new { id = item.id }, new { @class = "linkDelete btn btn-danger", @role = "button" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.percio_unitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @ASP_2184587.Controllers.ProductoController.nombreProveedor(item.id_proveedor)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "btn btn-warning", @role = "button" })
+                @Html.ActionLink("Borrar", "Delete", new { id = item.id }, new { @class = "linkDelete btn btn-danger", @role = "button" })
+            </td>
+        </tr>
+    }
 </table>
 
 @section scripts

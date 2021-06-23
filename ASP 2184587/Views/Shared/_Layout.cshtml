@@ -4,40 +4,34 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - ASP 2184587</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" href="~/Content/estilos.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            @Html.ActionLink("NIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand btn-one" })
+        </div>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("NIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand btn-three" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav nav-tabs">
-                    <li role="presentation">@Html.ActionLink("Inicio", "Index","Home")</li>
-                    <li role="presentation">@Html.ActionLink("Acerca de","About","Home")</li>
+            <div class="navbar-collapse ">
+                <ul class="nav nav-pills nav-justified">
+                    <li role="presentation">@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                    <li role="presentation">@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li role="presentation" >@Html.ActionLink("Iniciar Sesion", "Login","Usuario")</li>                        
+                        <li role="presentation">@Html.ActionLink("Iniciar Sesion", "Login", "Usuario", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
                     }
-
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li role="presentation">@Html.ActionLink("Usuario", "Index","Usuario")</li>
-                        <li role="presentation">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                        <li role="presentation">@Html.ActionLink("Proveedores", "Index","Proveedor")</li>
-                        <li role="presentation">@Html.ActionLink("Producto", "Index", "Producto")</li>
-                        <li role="presentation">@Html.ActionLink("Compra", "Index", "Compra")</li>
-                        <li role="presentation">@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
-                        <li role="presentation">@Html.ActionLink("Cerrar sesion", "closeSession", "usuario")</li>
+                        <li role="presentation">@Html.ActionLink("Usuario", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Cliente", "Index", "Cliente", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Proveedores", "Index", "Proveedor", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Producto", "Index", "Producto", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Compra", "Index", "Compra", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Producto compra", "Index", "productoCompra", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
+                        <li role="presentation">@Html.ActionLink("Cerrar sesion", "closeSession", "usuario", new { area = "" }, new { @class = "navbar-brand btn-one" })</li>
                     }
                 </ul>
             </div>

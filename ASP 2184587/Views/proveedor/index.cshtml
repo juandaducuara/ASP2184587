@@ -9,21 +9,23 @@
 <p>
     @Html.ActionLink("Crear Proveedor", "Create", "", new { @class = "btn btn-success", @role = "button" })
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
-        <th>
+        <th class="active">
             Nombre
         </th>
-        <th>
+        <th class="active">
             Dirrecion
         </th>
-        <th>
+        <th class="active">
             Telefono
         </th>
-        <th>
+        <th class="active">
             Nombre contacto
         </th>
-        <th></th>
+        <th class="active">
+            Opciones
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -50,14 +52,15 @@
     }
 
 </table>
+
+@Html.ActionLink("Cargue Masivo de Datos", "uploadCSV", "", new { @class = "btn btn-info", @role = "button" })
+
 @section scripts
     {
     <script>
-        $(".linkDelete").click(function(event)
-        {
-            if(!confirm('¿Esta seguro de eliminar?'))
-            {
-            event.preventDefault();
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿Esta seguro de eliminar?')) {
+                event.preventDefault();
             }
         })
     </script>
