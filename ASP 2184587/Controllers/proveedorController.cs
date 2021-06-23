@@ -8,6 +8,7 @@ using System.IO;
 
 namespace ASP_2184587.Controllers
 {
+    [Authorize]
     public class proveedorController : Controller
     {
         // GET: provedor

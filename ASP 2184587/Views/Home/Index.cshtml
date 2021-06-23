@@ -3,29 +3,34 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Proyecto inventario ASP MVC</h1>
+    <p class="lead">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum tellus dui, nec gravida urna consectetur nec. Donec vitae molestie neque, ac aliquam odio. Aenean tristique lacinia viverra. Nulla feugiat vel sem a aliquet. Aliquam nibh dolor, congue a mi vel, viverra vestibulum nulla. Aenean pharetra nisl eu ante tempor, eget pellentesque enim suscipit. Suspendisse nunc justo, vehicula ut mollis quis, egestas ac libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac augue a elit tempus posuere. Integer aliquet congue eros, non bibendum nulla. Nullam nunc tellus, luctus et dui at, pretium porta dui.
+    </p>
+    @if (!User.Identity.IsAuthenticated)
+    {       
+            <a href="/usuario/Login" class="btn btn-three btn-lg">Iniciar Sesión</a>  
+               
+    }
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Administacion de usuarios</h2>
+        <img src="https://www.clicdata.com/wp-content/uploads/2019/01/user-security-management-header.png" class="img-responsive imgHome" alt="Responsive image" />
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Vivamus consequat, nulla in accumsan commodo, nibh orci faucibus lacus, vulputate finibus nisi sem id arcu. Mauris ac purus porta, laoreet ex in, tempus justo. Aenean auctor odio scelerisque libero sagittis, at rutrum ipsum varius. Phasellus mollis felis vel diam pretium, at scelerisque dui congue. Curabitur ultrices metus lacus, eget malesuada nulla commodo vel. Aenean posuere nibh et finibus cursus. Nam sit amet ultricies nisi.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Gestion de productos</h2>
+        <img src="https://image.flaticon.com/icons/png/512/2250/2250401.png" class="img-responsive imgHome" alt="Responsive image" />
+        <p>Vivamus consequat, nulla in accumsan commodo, nibh orci faucibus lacus, vulputate finibus nisi sem id arcu. Mauris ac purus porta, laoreet ex in, tempus justo. Aenean auctor odio scelerisque libero sagittis, at rutrum ipsum varius. Phasellus mollis felis vel diam pretium, at scelerisque dui congue. Curabitur ultrices metus lacus, eget malesuada nulla commodo vel. Aenean posuere nibh et finibus cursus. Nam sit amet ultricies nisi.</p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Gestion de proveedores</h2>
+        <img src="https://image.flaticon.com/icons/png/512/2942/2942322.png" class="img-responsive imgHome" alt="Responsive image" />
+        <p>Vivamus consequat, nulla in accumsan commodo, nibh orci faucibus lacus, vulputate finibus nisi sem id arcu. Mauris ac purus porta, laoreet ex in, tempus justo. Aenean auctor odio scelerisque libero sagittis, at rutrum ipsum varius. Phasellus mollis felis vel diam pretium, at scelerisque dui congue. Curabitur ultrices metus lacus, eget malesuada nulla commodo vel. Aenean posuere nibh et finibus cursus. Nam sit amet ultricies nisi.</p>
     </div>
 </div>

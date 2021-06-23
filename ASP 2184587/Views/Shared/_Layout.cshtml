@@ -7,7 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
-    <link rel="stylesheet" href="~/Content/Custom.css" />
+    <link rel="stylesheet" href="~/Content/estilos.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -18,22 +18,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("NIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("NIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand btn-three" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav nav-tabs">
-                    <li role="presentation">@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li role="presentation">@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li role="presentation">@Html.ActionLink("Inicio", "Index","Home")</li>
+                    <li role="presentation">@Html.ActionLink("Acerca de","About","Home")</li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li role="presentation" class="active">@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>                        
+                        <li role="presentation" >@Html.ActionLink("Iniciar Sesion", "Login","Usuario")</li>                        
                     }
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li role="presentation">@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li role="presentation">@Html.ActionLink("Usuario", "Index","Usuario")</li>
                         <li role="presentation">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                        <li role="presentation">@Html.ActionLink("Proveedores", "Index", "Proveedor")</li>
+                        <li role="presentation">@Html.ActionLink("Proveedores", "Index","Proveedor")</li>
                         <li role="presentation">@Html.ActionLink("Producto", "Index", "Producto")</li>
                         <li role="presentation">@Html.ActionLink("Compra", "Index", "Compra")</li>
                         <li role="presentation">@Html.ActionLink("Producto compra", "Index", "productoCompra")</li>
@@ -46,8 +46,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        <footer class="footer">
+            @RenderSection("infoFooter", required: false)
+            <p>
+                Creador por: Juan David Ducuara<br />
+            <p><a href="mailto:jducuara63@gmail.com">Send Mail</a></p>
+                <a href="https://github.com/juandaducuara/ASP2184587" target="_blank">Repositorio GitHub</a>
+            </p>
         </footer>
     </div>
 

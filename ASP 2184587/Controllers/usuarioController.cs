@@ -20,11 +20,12 @@ namespace ASP_2184587.Controllers
                 return View(db.usuario.ToList());
             }
             
-        }        
-        public ActionResult Create()
+        }
+        [Authorize]
+        public ActionResult Create() 
         {
             return View();
-        }
+        }        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(usuario usuario)
@@ -62,6 +63,7 @@ namespace ASP_2184587.Controllers
             }
             return sb.ToString();
         }
+        [Authorize]
         public ActionResult Details(int id)
         {
             using(var db = new inventarioEntities1())
@@ -71,6 +73,7 @@ namespace ASP_2184587.Controllers
 
             }
         }
+        [Authorize]
         public ActionResult Edit(int id)
         {
             try
@@ -87,7 +90,7 @@ namespace ASP_2184587.Controllers
                 return View();
                 
             }
-        }
+        }        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuario editUser)
@@ -113,6 +116,7 @@ namespace ASP_2184587.Controllers
                 return View();
             }            
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             try
@@ -130,13 +134,12 @@ namespace ASP_2184587.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
-        }
+        }        
         public ActionResult Login(string message ="")
         {
             ViewBag.Message = message;
             return View();
         }
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user,string password)

@@ -7,6 +7,7 @@ using ASP_2184587.Models;
 
 namespace ASP_2184587.Controllers
 {
+    [Authorize]
     public class clienteController : Controller
     {
         // GET: cliente

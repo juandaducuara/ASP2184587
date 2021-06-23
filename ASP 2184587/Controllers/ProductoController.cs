@@ -9,6 +9,7 @@ using Rotativa;
 
 namespace ASP_2184587.Controllers
 {
+    [Authorize]
     public class ProductoController : Controller
     {
         // GET: Producto

@@ -1,0 +1,87 @@
+﻿.imgHome{
+    max-width:57%;
+    margin: 0 auto;
+}
+.navbar-inverse {
+    background-color: darkslategrey;
+}
+a{
+    color:black;
+}
+.titulos {
+    color: aliceblue;
+}
+.footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #407b7b;
+    text-align: center;
+}
+.jumbotron-fluid{
+    background-color:#3252eb;
+}
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    top:5px;
+
+
+}
+h2{
+    text-align:center;    
+}
+.btn-three {
+    color: rgb(0, 0, 0);
+    transition: all 0.5s;
+    position: relative;    
+}
+
+    .btn-three::before {
+        content: '';
+        position: absolute;        
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(64, 123, 123, 0.53);
+        transition: all 0.3s;
+    }
+
+    .btn-three:hover::before {
+        opacity: 0;
+        transform: scale(0.5,0.5);
+    }
+
+    .btn-three::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        border: 1px solid rgb(0, 0, 0);
+        transform: scale(1.2,1.2);
+    }
+
+    .btn-three:hover::after {
+        opacity: 1;
+        transform: scale(1,1);
+    }
+
+
+
+    
+
+

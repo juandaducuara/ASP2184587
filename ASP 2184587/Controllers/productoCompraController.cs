@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ASP_2184587.Controllers
 {
+    [Authorize]
     public class productoCompraController : Controller
     {
         // GET: productoCompra
